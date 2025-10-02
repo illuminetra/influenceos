@@ -7,7 +7,7 @@ Start-Sleep -Seconds 1
 
 # Repeat the whole process 3 times
 for ($iteration = 1; $iteration -le 3; $iteration++) {
-    Write-Output "`n=== Iteration $iteration of 3 ===`n"
+    Write-Output "`n=== $iteration of 3 ===`n"
 
     # Get list of connected devices
     $devices = adb devices | Select-String "device$" | ForEach-Object { ($_ -split '\s+')[0] }
@@ -48,7 +48,7 @@ for ($iteration = 1; $iteration -le 3; $iteration++) {
         }
     }
 
-    Write-Output "`nIteration $iteration complete."
+    Write-Output "`nDevices Unlocked - $iteration"
     Start-Sleep -Seconds 1  # Optional pause before next iteration
 }
 
