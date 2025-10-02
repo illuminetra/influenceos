@@ -1,6 +1,6 @@
-Write-Output "======================================"
-Write-Output "     Influence OS by Black Aqua India Pvt Ltd"
-Write-Output "======================================"
+Write-Output "============================================"
+Write-Output "  Influence OS by Black Aqua India Pvt Ltd  "
+Write-Output "============================================"
 
 # Get list of connected devices
 $devices = adb devices | Select-String "device$" | ForEach-Object { ($_ -split "`t")[0] }
