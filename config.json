@@ -8,6 +8,6 @@
     "deploy": "https://example.com/deploy.ps1"
   },
   "adb_scripts": {
-    "close_all_apps": "https://raw.githubusercontent.com/blackaquaindia/influenceos/refs/heads/main/scripts/adb/close_all_apps.ps1?token=GHSAT0AAAAAADLYLNNPUIRTZDLJOBN3W32G2G647MA"
+    "close_all_apps": "https://raw.githubusercontent.com/blackaquaindia/influenceos/refs/heads/main/scripts/adb/close_all_apps.ps1"
   }
 }
