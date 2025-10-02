@@ -1,6 +1,6 @@
-Write-Output "========================================"
-Write-Output "Influence OS by Black Aqua India Pvt Ltd"
-Write-Output "========================================"
+Write-Output "============================================"
+Write-Output "  Influence OS by Black Aqua India Pvt Ltd  "
+Write-Output "============================================"
 Write-Output "`nStarting script to close all recent apps..." 
 
 Start-Sleep -Seconds 1
@@ -21,6 +21,6 @@ for ($i = 1; $i -le 3; $i++) {
 }
 
 Write-Output "`nAll apps cleared on all devices!"
-Write-Output "========================================"
-Write-Output "Influence OS by Black Aqua India Pvt Ltd"
-Write-Output "========================================"
+Write-Output "============================================"
+Write-Output "  Influence OS by Black Aqua India Pvt Ltd  "
+Write-Output "============================================"
