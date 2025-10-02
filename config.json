@@ -9,6 +9,7 @@
   },
   "adb_scripts": {
     "unlock_devices": "https://blackaquaindia.github.io/influenceos/scripts/adb/unlock_devices.ps1",
-    "close_all_apps": "https://blackaquaindia.github.io/influenceos/scripts/adb/close_all_apps.ps1"
+    "close_all_apps": "https://blackaquaindia.github.io/influenceos/scripts/adb/close_all_apps.ps1",
+    "automate_files": "https://blackaquaindia.github.io/influenceos/scripts/adb/automate_files.ps1"
   }
 }
