@@ -7,6 +7,7 @@ $devices = adb devices | Select-String "device$" | ForEach-Object { ($_ -split "
 
 if ($devices.Count -eq 0) {
     Write-Output "No ADB devices found!"
+    Read-Host "Press Enter to exit..."
     exit
 }
 
