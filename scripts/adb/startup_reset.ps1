@@ -17,15 +17,13 @@ foreach ($device in $devices) {
     $deviceSchedule[$device] = (Get-Date)  # Start immediately
 }
 
-Write-Output "Starting lightweight device loop..."
-
 while ($true) {
     $now = Get-Date
 
     foreach ($device in $devices) {
         if ($now -ge $deviceSchedule[$device]) {
             $timestamp = $now.ToString("HH:mm:ss")
-            Write-Output "[$timestamp] | Device: $device | Updating startup.txt"
+            Write-Output "[$timestamp] | Device: $device | Updating Startup Reset"
 
             # Ensure directory exists
             adb -s $device shell "mkdir -p /storage/emulated/0/blackaqualocal"
