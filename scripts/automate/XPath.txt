@@ -1,3 +1,0 @@
-XPath1
-XPath2
-XPath3
