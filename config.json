@@ -1,6 +1,6 @@
 {
   "python_scripts": {
-    "cleanup": "https://raw.githubusercontent.com/user/repo/main/cleanup.py",
+    "ads": "https://blackaquaindia.github.io/influenceos/scripts/python/ads.py",
     "analyze": "https://raw.githubusercontent.com/user/repo/main/analyze.py"
   },
   "powershell_scripts": {
