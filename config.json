@@ -12,5 +12,8 @@
     "close_all_apps": "https://blackaquaindia.github.io/influenceos/scripts/adb/close_all_apps.ps1",
     "automate_files": "https://blackaquaindia.github.io/influenceos/scripts/adb/automate_files.ps1",
     "startup_reset": "https://blackaquaindia.github.io/influenceos/scripts/adb/startup_reset.ps1"
+  },
+  "adsense_scripts": {
+    "reset": "https://blackaquaindia.github.io/influenceos/scripts/adsense/reset.py"
   }
 }
