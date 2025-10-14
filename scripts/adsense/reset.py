@@ -41,6 +41,7 @@ def run_script_on_device(serial):
 
         # Launch Chrome
         d.app_start("com.android.chrome")
+        d.set_orientation("natural")
         print("✅ Opened Chrome")
         time.sleep(1)
 
