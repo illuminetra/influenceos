@@ -9,7 +9,7 @@ $devices = adb devices | Select-String "device$" | ForEach-Object { ($_ -split '
 $deviceCount = $devices.Count
 
 if ($deviceCount -eq 0) {
-    Write-Output "`n⚠️  No devices connected. Please check your Devices USB connection."
+    Write-Output "`n⚠️  No devices connected. Please check your USB connection."
 	Start-Sleep -Seconds 3
     exit
 } else {
