@@ -14,7 +14,7 @@
     "startup_reset": "https://blackaquaindia.github.io/influenceos/scripts/adb/startup_reset.ps1"
   },
   "adsense_scripts": {
-    "reset": "https://blackaquaindia.github.io/influenceos/scripts/adsense/main.py",
+    "main": "https://blackaquaindia.github.io/influenceos/scripts/adsense/main.py",
     "reset": "https://blackaquaindia.github.io/influenceos/scripts/adsense/reset.py"
   }
 }
