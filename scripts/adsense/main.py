@@ -6,7 +6,6 @@ import subprocess
 
 # ======================================================
 #   Influence OS by Black Aqua India Pvt Ltd
-#   Web Automation with Random Scrolls & Click Action
 # ======================================================
 
 URL = "https://crickettang.in/"
@@ -29,9 +28,9 @@ def get_connected_devices():
 def wait_for_page_load(d, keyword=PAGE_KEYWORD, retries=RETRIES, delay=DELAY):
     for attempt in range(1, retries + 1):
         if d(textContains=keyword).exists:
-            print(f"✅ Webpage loaded successfully (found '{keyword}') [attempt {attempt}]")
+            print(f"✅ Webpage loaded successfully - [attempt {attempt}]")
             return True
-        print(f"⏳ Waiting for webpage to load... ({attempt}/{retries})")
+        print(f"⏳ Waiting for webpage to load... [{attempt}/{retries}]")
         time.sleep(delay)
     print("❌ Webpage failed to load after max retries.")
     return False
@@ -89,7 +88,7 @@ def click_with_retries(d, text=None, resourceId=None, description=None, retries=
 # ------------------------------
 def open_chrome_on_device(device):
     try:
-        print(f"\n🚀 [{device}] Connecting via uiautomator2...")
+        print(f"\n🚀 [{device}] Connecting via InfluenceOS...")
         d = u2.connect(device)
 
         print(f"🌐 [{device}] Launching Chrome with {URL}")
@@ -117,8 +116,7 @@ def open_chrome_on_device(device):
 # ------------------------------
 if __name__ == "__main__":
     print("=====================================================")
-    print("   🌐 Influence OS — Web Automation Tool")
-    print("        Powered by Black Aqua India Pvt Ltd")
+    print("   Influence OS by Black Aqua India Pvt Ltd")
     print("=====================================================")
 
     devices = get_connected_devices()
