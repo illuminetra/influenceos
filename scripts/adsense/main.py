@@ -39,7 +39,7 @@ def wait_for_page_load(d, keyword=PAGE_KEYWORD, retries=RETRIES, delay=DELAY):
 # Perform random scrolls (10–20)
 # ------------------------------
 def random_scroll_behavior(d):
-    scrolls = random.randint(5, 10)
+    scrolls = random.randint(10, 20)
     print(f"🌀 Performing {scrolls} random scrolls...")
     
     for i in range(scrolls):
@@ -56,32 +56,8 @@ def random_scroll_behavior(d):
             print(f"⬆️ Scrolling up ({i+1}/{scrolls})")
             d.swipe(start_x, end_y, start_x, start_y, 0.3)
 
-        # random human-like delay between scrolls
+        # random delay between scrolls
         time.sleep(random.uniform(1.5, 3.5))
-
-# ------------------------------
-# Retry click helper
-# ------------------------------
-def click_with_retries(d, text=None, resourceId=None, description=None, retries=5, delay=1):
-    for attempt in range(1, retries + 1):
-        try:
-            if text and d(text=text).exists:
-                d(text=text).click()
-                print(f"✅ Clicked element with text='{text}' [attempt {attempt}]")
-                return True
-            elif resourceId and d(resourceId=resourceId).exists:
-                d(resourceId=resourceId).click()
-                print(f"✅ Clicked element with resourceId='{resourceId}' [attempt {attempt}]")
-                return True
-            elif description and d(description=description).exists:
-                d(description=description).click()
-                print(f"✅ Clicked element with description='{description}' [attempt {attempt}]")
-                return True
-        except Exception as e:
-            print(f"⚠️ Attempt {attempt}: click failed - {e}")
-        time.sleep(delay)
-    print(f"❌ Could not find element after {retries} retries.")
-    return False
 
 # ------------------------------
 # Main per-device thread
@@ -93,19 +69,34 @@ def open_chrome_on_device(device):
 
         print(f"🌐 [{device}] Launching Chrome with {URL}")
         d.shell(f'am start -a android.intent.action.VIEW -d "{URL}" com.android.chrome')
-        time.sleep(3)
+        time.sleep(5)
 
         if wait_for_page_load(d):
             print(f"✅ [{device}] Page loaded successfully — starting random browsing.")
             random_scroll_behavior(d)
 
-            # Try clicking "Read Post"
-            print(f"🖱️ [{device}] Attempting to click 'Read Post'...")
-            if click_with_retries(d, text="Read Post", retries=8, delay=2):
-                time.sleep(2)
-                # After clicking, check if dismiss button appears
-                print(f"🔍 [{device}] Checking for 'dismiss-button' popup...")
-                click_with_retries(d, resourceId="dismiss-button", retries=5, delay=1)
+            print(f"🖱️ [{device}] Attempting to click 2nd 'Read Post' button...")
+            try:
+                read_post_buttons = d(text="Read Post")
+                if len(read_post_buttons) > 1:
+                    read_post_buttons[1].click()
+                    print(f"✅ [{device}] Successfully clicked 2nd 'Read Post' button.")
+                elif len(read_post_buttons) == 1:
+                    print(f"⚠️ [{device}] Only 1 'Read Post' found — clicking that one instead.")
+                    read_post_buttons[0].click()
+                else:
+                    print(f"❌ [{device}] No 'Read Post' button found on the page.")
+            except Exception as e:
+                print(f"⚠️ [{device}] Error clicking 'Read Post': {e}")
+
+            time.sleep(2)
+            # Check for popup dismiss button
+            print(f"🔍 [{device}] Checking for 'dismiss-button' popup...")
+            if d(resourceId="dismiss-button").exists:
+                d(resourceId="dismiss-button").click()
+                print(f"✅ [{device}] Dismissed popup successfully.")
+            else:
+                print(f"ℹ️ [{device}] No popup found.")
         else:
             print(f"⚠️ [{device}] Page not fully loaded — skipping scroll & click.")
     except Exception as e:
