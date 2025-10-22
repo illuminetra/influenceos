@@ -182,7 +182,7 @@ def open_chrome_on_device(device):
                         time.sleep(random.uniform(1, 60))
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
-                        print("✅ Chrome storage and Cache Cleared Successfully!")
+                        print(f"✅ [{device}] Chrome storage and Cache Cleared Successfully!")
 
                         time.sleep(random.uniform(1, 60))
                         open_chrome_on_device(device)
@@ -190,7 +190,7 @@ def open_chrome_on_device(device):
                         print(f"⚠️ [{device}] No ad found after scrolling.")
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
-                        print("✅ Chrome storage and Cache Cleared Successfully!")
+                        print(f"✅ [{device}] Chrome storage and Cache Cleared Successfully!")
 
                         time.sleep(random.uniform(1, 60))
                         open_chrome_on_device(device)
