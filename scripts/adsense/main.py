@@ -39,7 +39,7 @@ def wait_for_page_load(d, keyword=PAGE_KEYWORD, retries=RETRIES, delay=DELAY):
 # Perform random scrolls (10–20)
 # ------------------------------
 def random_scroll_behavior(d):
-    scrolls = random.randint(5, 25)
+    scrolls = random.randint(5, 10)
     print(f"🌀 Performing {scrolls} random scrolls...")
     
     for i in range(scrolls):
