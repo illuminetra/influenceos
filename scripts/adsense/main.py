@@ -9,7 +9,7 @@ import subprocess
 # ======================================================
 
 URL = "https://crickettang.in/"
-PAGE_KEYWORD = "Sample Page"   # text to verify page load
+PAGE_KEYWORD = "Cricket Tang"   # text to verify page load
 RETRIES = 10
 DELAY = 2
 
