@@ -1,6 +1,7 @@
 import subprocess
 import sys
 import importlib
+import time
 
 # ======================================================
 #   Influence OS by Black Aqua India Pvt Ltd
@@ -60,6 +61,7 @@ def main():
     print("🎯 Environment Setup Completed Successfully!")
     print("   Influence OS by Black Aqua India Pvt Ltd".center(60))
     print("="*60 + "\n")
+    time.sleep(3)
 
 if __name__ == "__main__":
     main()
