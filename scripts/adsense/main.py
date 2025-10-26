@@ -188,9 +188,9 @@ def restart_socksdroid(d, retries=5, delay=2):
             d.app_start("net.typeblog.socks")
             time.sleep(2)
             # Try clicking the toggle button
-            btn = d(resourceId="net.typeblog.socks:id/switch_action_button")
-            if btn.exists:
-                btn.click()
+            switch_action_button_btn = d(resourceId="net.typeblog.socks:id/switch_action_button")
+            if switch_action_button_btn.exists:
+                switch_action_button_btn.click()
                 return True
             else:
                 print("⚠️ Switch button not found, retrying...")
