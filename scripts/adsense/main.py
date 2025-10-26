@@ -178,6 +178,32 @@ def open_ip_rotation_url(d, file_path="/sdcard/Download/rotation_url.txt"):
 
 
 
+def restart_socksdroid(d, retries=5, delay=1):
+    """-stop and restart SocksDroid, then toggle its switch button.Automatically retries if it fails."""
+    for attempt in range(1, retries + 1):
+        try:
+            # Force stop and relaunch
+            d.shell("am force-stop net.typeblog.socks")
+            time.sleep(1)
+            d.app_start("net.typeblog.socks")
+            time.sleep(1)
+            # Try clicking the toggle button
+            btn = d(resourceId="net.typeblog.socks:id/switch_action_button")
+            if btn.exists:
+                btn.click()
+                return True
+            else:
+                print("⚠️ Switch button not found, retrying...")
+        except Exception as e:
+            print(f"❌ Error during attempt {attempt}: {e}")
+        # Wait before next retry
+        time.sleep(delay)
+    print("❌ Failed to restart SocksDroid after all retries.")
+    return False
+
+
+
+
 def open_chrome_on_device(device):
     """Main per-device workflow."""
     try:
@@ -208,8 +234,12 @@ def open_chrome_on_device(device):
                         
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
-                        time.sleep(random.uniform(1, 30))
+                        time.sleep(random.uniform(1, 10))
 
+                        # Restart SocksDroid
+                        restart_socksdroid(d)
+                        time.sleep(random.uniform(1, 30))
+                        
                         # Restarting Script
                         open_chrome_on_device(device)
                     else:
@@ -221,6 +251,10 @@ def open_chrome_on_device(device):
                         
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
+                        time.sleep(random.uniform(1, 10))
+                        
+                        # Restart SocksDroid
+                        restart_socksdroid(d)
                         time.sleep(random.uniform(1, 30))
 
                         # Restarting Script
