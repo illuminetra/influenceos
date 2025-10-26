@@ -187,7 +187,7 @@ def restart_socksdroid(d, retries=5, delay=2):
             time.sleep(1)
             
             open_ip_rotation_url(d)
-            time.sleep(random.uniform(10, 30))
+            time.sleep(random.uniform(1, 30))
             
             d.shell("am start -n net.typeblog.socks/.MainActivity")
             time.sleep(2)
