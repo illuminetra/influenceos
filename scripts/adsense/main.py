@@ -185,6 +185,10 @@ def restart_socksdroid(d, retries=5, delay=2):
             # Force stop and relaunch
             d.shell("am force-stop net.typeblog.socks")
             time.sleep(1)
+            
+            open_ip_rotation_url(d)
+            time.sleep(random.uniform(10, 30))
+            
             d.shell("am start -n net.typeblog.socks/.MainActivity")
             time.sleep(2)
             # Try clicking the toggle button
@@ -229,16 +233,16 @@ def open_chrome_on_device(device):
                         time.sleep(random.uniform(1, 30))
 
                         # Processing with IP Rotation
-                        open_ip_rotation_url(d)
-                        time.sleep(random.uniform(1, 30))
+                        #open_ip_rotation_url(d)
+                        #time.sleep(random.uniform(1, 30))
                         
-                        # Clear Chrome Storage & Cache
-                        d.shell('pm clear com.android.chrome')
-                        time.sleep(random.uniform(1, 10))
-
                         # Restart SocksDroid
                         restart_socksdroid(d)
                         time.sleep(random.uniform(1, 30))
+
+                        # Clear Chrome Storage & Cache
+                        d.shell('pm clear com.android.chrome')
+                        time.sleep(random.uniform(1, 10))
                         
                         # Restarting Script
                         open_chrome_on_device(device)
@@ -246,17 +250,17 @@ def open_chrome_on_device(device):
                         print(f"⚠️ [{device}] No ad found after scrolling.")
 
                         # Processing with IP Rotation
-                        open_ip_rotation_url(d)
+                        #open_ip_rotation_url(d)
+                        #time.sleep(random.uniform(1, 30))
+                        
+                        # Restart SocksDroid
+                        restart_socksdroid(d)
                         time.sleep(random.uniform(1, 30))
                         
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
                         time.sleep(random.uniform(1, 10))
                         
-                        # Restart SocksDroid
-                        restart_socksdroid(d)
-                        time.sleep(random.uniform(1, 30))
-
                         # Restarting Script
                         open_chrome_on_device(device)
             else:
