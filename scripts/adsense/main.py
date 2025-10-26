@@ -185,7 +185,7 @@ def restart_socksdroid(d, retries=5, delay=2):
             # Force stop and relaunch
             d.shell("am force-stop net.typeblog.socks")
             time.sleep(1)
-            d.app_start("net.typeblog.socks")
+            d.shell("am start -n net.typeblog.socks/.MainActivity")
             time.sleep(2)
             # Try clicking the toggle button
             switch_action_button_btn = d(resourceId="net.typeblog.socks:id/switch_action_button")
