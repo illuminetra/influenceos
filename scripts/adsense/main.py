@@ -184,7 +184,7 @@ def restart_socksdroid(d, retries=5, delay=2):
         try:
             # Force stop and relaunch
             d.shell("am force-stop net.typeblog.socks")
-            time.sleep(1)
+            time.sleep(random.uniform(1, 30))
             
             open_ip_rotation_url(d)
             time.sleep(random.uniform(1, 30))
@@ -255,7 +255,7 @@ def open_chrome_on_device(device):
                         
                         # Restart SocksDroid
                         restart_socksdroid(d)
-                        time.sleep(random.uniform(1, 30))
+                        time.sleep(random.uniform(1, 10))
                         
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
