@@ -178,7 +178,7 @@ def open_ip_rotation_url(d, file_path="/sdcard/Download/rotation_url.txt"):
 
 
 
-def restart_socksdroid(d, retries=5, delay=1):
+def restart_socksdroid(d, retries=5, delay=2):
     """-stop and restart SocksDroid, then toggle its switch button.Automatically retries if it fails."""
     for attempt in range(1, retries + 1):
         try:
@@ -186,7 +186,7 @@ def restart_socksdroid(d, retries=5, delay=1):
             d.shell("am force-stop net.typeblog.socks")
             time.sleep(1)
             d.app_start("net.typeblog.socks")
-            time.sleep(1)
+            time.sleep(2)
             # Try clicking the toggle button
             btn = d(resourceId="net.typeblog.socks:id/switch_action_button")
             if btn.exists:
