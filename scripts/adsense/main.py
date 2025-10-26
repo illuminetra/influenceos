@@ -157,6 +157,27 @@ def human_scroll_and_misclick(d, ad_ids=None, max_scrolls=15, min_scrolls_before
     return False
 
 
+
+
+def open_ip_rotation_url(d, file_path="/sdcard/Download/rotation_url.txt"):
+    """Reads a URL from /sdcard/Download/rotation_url.txt on the Android device and opens it in Chrome browser."""
+    try:
+        # Read file content using ADB shell command
+        content = d.shell(f"cat {file_path}").output.strip()
+        url = content.strip()
+        print(f"📡 [{device}] Rotating IP with URL: {url}")
+        if not url:
+            print(f"⚠️ No URL found in {file_path}")
+            return False
+        # Launch Chrome with the URL
+        d.shell(f'am start -a android.intent.action.VIEW -d "{url}" com.android.chrome')
+    except Exception as e:
+        print(f"❌ Error opening URL: {e}")
+        return False
+
+
+
+
 def open_chrome_on_device(device):
     """Main per-device workflow."""
     try:
@@ -179,16 +200,30 @@ def open_chrome_on_device(device):
                     clicked = human_scroll_and_misclick(d)
                     if clicked:
                         print(f"🎯 [{device}] Ad clicked successfully!")
-                        time.sleep(random.uniform(1, 60))
+                        time.sleep(random.uniform(1, 30))
+
+                        # Processing with IP Rotation
+                        open_ip_rotation_url(d)
+                        time.sleep(random.uniform(1, 30))
+                        
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
-                        time.sleep(random.uniform(1, 60))
+                        time.sleep(random.uniform(1, 30))
+
+                        # Restarting Script
                         open_chrome_on_device(device)
                     else:
                         print(f"⚠️ [{device}] No ad found after scrolling.")
+
+                        # Processing with IP Rotation
+                        open_ip_rotation_url(d)
+                        time.sleep(random.uniform(1, 30))
+                        
                         # Clear Chrome Storage & Cache
                         d.shell('pm clear com.android.chrome')
-                        time.sleep(random.uniform(1, 60))
+                        time.sleep(random.uniform(1, 30))
+
+                        # Restarting Script
                         open_chrome_on_device(device)
             else:
                 print(f"🔁 [{device}] 'Read Post' not found — restarting operation.")
