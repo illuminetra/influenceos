@@ -268,6 +268,8 @@ def open_chrome_on_device(device):
                 open_chrome_on_device(device)
         else:
             print(f"⚠️ [{device}] Page not fully loaded — skipping scroll & click.")
+            # Restarting Script
+            open_chrome_on_device(device)
     except Exception as e:
         print(f"❌ [{device}] Error: {e}")
 
