@@ -1,20 +1,20 @@
 {
   "python_scripts": {
-    "ads": "https://illuminetra.github.io/influenceos/scripts/python/ads.py",
-    "setup": "https://illuminetra.github.io/influenceos/scripts/setup/setup.py"
+    "ads": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/python/ads.py",
+    "setup": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/setup/setup.py"
   },
   "powershell_scripts": {
     "monitor": "https://example.com/monitor.ps1",
     "deploy": "https://example.com/deploy.ps1"
   },
   "adb_scripts": {
-    "unlock_devices": "https://illuminetra.github.io/influenceos/scripts/adb/unlock_devices.ps1",
-    "close_all_apps": "https://illuminetra.github.io/influenceos/scripts/adb/close_all_apps.ps1",
-    "automate_files": "https://illuminetra.github.io/influenceos/scripts/adb/automate_files.ps1",
-    "startup_reset": "https://illuminetra.github.io/influenceos/scripts/adb/startup_reset.ps1"
+    "unlock_devices": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/adb/unlock_devices.ps1",
+    "close_all_apps": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/adb/close_all_apps.ps1",
+    "automate_files": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/adb/automate_files.ps1",
+    "startup_reset": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/adb/startup_reset.ps1"
   },
   "adsense_scripts": {
-    "main": "https://illuminetra.github.io/influenceos/scripts/adsense/main.py",
-    "reset": "https://illuminetra.github.io/influenceos/scripts/adsense/reset.py"
+    "main": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/adsense/main.py",
+    "reset": "https://raw.githubusercontent.com/illuminetra/influenceos/scripts/adsense/reset.py"
   }
 }
