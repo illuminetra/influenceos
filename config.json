@@ -1,21 +1,20 @@
 {
   "python_scripts": {
-    "ads": "https://blackaquaindia.github.io/influenceos/scripts/python/ads.py",
-    "analyze": "https://raw.githubusercontent.com/user/repo/main/analyze.py",
-    "setup": "https://blackaquaindia.github.io/influenceos/scripts/setup/setup.py"
+    "ads": "https://illuminetra.github.io/influenceos/scripts/python/ads.py",
+    "setup": "https://illuminetra.github.io/influenceos/scripts/setup/setup.py"
   },
   "powershell_scripts": {
     "monitor": "https://example.com/monitor.ps1",
     "deploy": "https://example.com/deploy.ps1"
   },
   "adb_scripts": {
-    "unlock_devices": "https://blackaquaindia.github.io/influenceos/scripts/adb/unlock_devices.ps1",
-    "close_all_apps": "https://blackaquaindia.github.io/influenceos/scripts/adb/close_all_apps.ps1",
-    "automate_files": "https://blackaquaindia.github.io/influenceos/scripts/adb/automate_files.ps1",
-    "startup_reset": "https://blackaquaindia.github.io/influenceos/scripts/adb/startup_reset.ps1"
+    "unlock_devices": "https://illuminetra.github.io/influenceos/scripts/adb/unlock_devices.ps1",
+    "close_all_apps": "https://illuminetra.github.io/influenceos/scripts/adb/close_all_apps.ps1",
+    "automate_files": "https://illuminetra.github.io/influenceos/scripts/adb/automate_files.ps1",
+    "startup_reset": "https://illuminetra.github.io/influenceos/scripts/adb/startup_reset.ps1"
   },
   "adsense_scripts": {
-    "main": "https://blackaquaindia.github.io/influenceos/scripts/adsense/main.py",
-    "reset": "https://blackaquaindia.github.io/influenceos/scripts/adsense/reset.py"
+    "main": "https://illuminetra.github.io/influenceos/scripts/adsense/main.py",
+    "reset": "https://illuminetra.github.io/influenceos/scripts/adsense/reset.py"
   }
 }
